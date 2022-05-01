@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": "rimraf dist && eslint --fix",
+    "rmdir": "node -e \"var fs = require('fs'); process.argv.slice(1).forEach((fpath) => fs.existsSync(fpath) && fs.rmdirSync(fpath, { recursive: true })); process.exit(0);\"",
+    "prebuild": "npm run rmdir -- dist && eslint --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
