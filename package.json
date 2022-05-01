@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "prebuild": "eslint --fix",
+    "prebuild": "rimraf dist && eslint --fix",
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node .",
